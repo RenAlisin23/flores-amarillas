@@ -67,7 +67,7 @@ body{
 }
 .wrap{width:100%;max-width:760px;margin:0 auto;padding:0 16px}
 
-#petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
 .petal{
   position:absolute;top:-8vh;
   border-radius:60% 40% 55% 45% / 55% 60% 40% 45%;
@@ -187,15 +187,15 @@ footer{text-align:center;padding:0 16px 56px;color:var(--ink-faint);font-size:.7
 
   <svg class="bouquet" viewBox="0 0 320 210" role="img" aria-label="Ilustración de tres flores amarillas">
     <g stroke="var(--leaf)" stroke-width="3" fill="none" stroke-linecap="round">
-      <path d="M160 205 C158 170 150 130 132 96"/>
-      <path d="M160 205 C162 170 170 132 190 98"/>
+      <path d="M160 205 C156 168 142 126 118 86"/>
+      <path d="M160 205 C164 168 178 128 202 88"/>
       <path d="M160 205 C160 172 160 140 160 112"/>
-      <path d="M150 150 C132 142 122 130 118 116"/>
-      <path d="M172 162 C190 156 200 146 206 132"/>
+      <path d="M148 152 C130 144 120 132 116 118"/>
+      <path d="M174 164 C192 158 202 148 208 134"/>
     </g>
-    <path d="M150 150 C136 146 128 136 124 124 C138 126 148 136 150 150Z" fill="var(--leaf)" opacity=".75"/>
-    <path d="M172 162 C186 158 194 148 198 136 C184 138 174 148 172 162Z" fill="var(--leaf)" opacity=".75"/>
-    <g transform="translate(132,92)">
+    <path d="M148 152 C134 148 126 138 122 126 C136 128 146 138 148 152Z" fill="var(--leaf)" opacity=".75"/>
+    <path d="M174 164 C188 160 196 150 200 138 C186 140 176 150 174 164Z" fill="var(--leaf)" opacity=".75"/>
+    <g transform="translate(118,82)">
       <g fill="var(--petal)">
         <ellipse cx="0" cy="-20" rx="8.5" ry="19"/><ellipse cx="0" cy="20" rx="8.5" ry="19"/>
         <ellipse cx="-20" cy="0" rx="19" ry="8.5"/><ellipse cx="20" cy="0" rx="19" ry="8.5"/>
@@ -206,7 +206,7 @@ footer{text-align:center;padding:0 16px 56px;color:var(--ink-faint);font-size:.7
       </g>
       <circle r="9.5" fill="#C98F00"/>
     </g>
-    <g transform="translate(190,94)">
+    <g transform="translate(202,84)">
       <g fill="var(--petal-2)">
         <ellipse cx="0" cy="-18" rx="7.5" ry="17"/><ellipse cx="0" cy="18" rx="7.5" ry="17"/>
         <ellipse cx="-18" cy="0" rx="17" ry="7.5"/><ellipse cx="18" cy="0" rx="17" ry="7.5"/>
@@ -217,7 +217,7 @@ footer{text-align:center;padding:0 16px 56px;color:var(--ink-faint);font-size:.7
       </g>
       <circle r="8.5" fill="#C98F00"/>
     </g>
-    <g transform="translate(160,104)">
+    <g transform="translate(160,110)">
       <g fill="var(--petal)">
         <ellipse cx="0" cy="-22" rx="9" ry="21"/><ellipse cx="0" cy="22" rx="9" ry="21"/>
         <ellipse cx="-22" cy="0" rx="21" ry="9"/><ellipse cx="22" cy="0" rx="21" ry="9"/>
@@ -243,37 +243,37 @@ footer{text-align:center;padding:0 16px 56px;color:var(--ink-faint);font-size:.7
 
     <div class="notes" style="margin-top:34px">
       <article class="note">
-        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal)"><ellipse cx="12" cy="5" rx="3" ry="5.5"/><ellipse cx="12" cy="19" rx="3" ry="5.5"/><ellipse cx="5" cy="12" rx="5.5" ry="3"/><ellipse cx="19" cy="12" rx="5.5" ry="3"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
+        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal)"><ellipse cx="12" cy="4.8" rx="2.9" ry="5.2"/><ellipse cx="12" cy="19.2" rx="2.9" ry="5.2"/><ellipse cx="4.8" cy="12" rx="5.2" ry="2.9"/><ellipse cx="19.2" cy="12" rx="5.2" ry="2.9"/><ellipse cx="6.9" cy="6.9" rx="2.8" ry="5" transform="rotate(45 6.9 6.9)"/><ellipse cx="17.1" cy="17.1" rx="2.8" ry="5" transform="rotate(45 17.1 17.1)"/><ellipse cx="17.1" cy="6.9" rx="2.8" ry="5" transform="rotate(-45 17.1 6.9)"/><ellipse cx="6.9" cy="17.1" rx="2.8" ry="5" transform="rotate(-45 6.9 17.1)"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
         <h3>Sobre el brillo</h3>
         <p>Hay gente que llega a un sitio y, sin proponérselo, le sube la luz a todo lo que tiene cerca. Tú eres de esas. Imagino que ya te lo han dicho; igual lo repito.</p>
       </article>
 
       <article class="note">
-        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal-2)"><ellipse cx="12" cy="5" rx="3" ry="5.5"/><ellipse cx="12" cy="19" rx="3" ry="5.5"/><ellipse cx="5" cy="12" rx="5.5" ry="3"/><ellipse cx="19" cy="12" rx="5.5" ry="3"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
+        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal-2)"><ellipse cx="12" cy="4.8" rx="2.9" ry="5.2"/><ellipse cx="12" cy="19.2" rx="2.9" ry="5.2"/><ellipse cx="4.8" cy="12" rx="5.2" ry="2.9"/><ellipse cx="19.2" cy="12" rx="5.2" ry="2.9"/><ellipse cx="6.9" cy="6.9" rx="2.8" ry="5" transform="rotate(45 6.9 6.9)"/><ellipse cx="17.1" cy="17.1" rx="2.8" ry="5" transform="rotate(45 17.1 17.1)"/><ellipse cx="17.1" cy="6.9" rx="2.8" ry="5" transform="rotate(-45 17.1 6.9)"/><ellipse cx="6.9" cy="17.1" rx="2.8" ry="5" transform="rotate(-45 6.9 17.1)"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
         <h3>Gracias por lo simple</h3>
         <p>Por las conversaciones sin motivo, por acordarte de cosas que yo ya había olvidado, por hacer que lo cotidiano se sienta bastante menos cotidiano.</p>
       </article>
 
       <article class="note">
-        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal)"><ellipse cx="12" cy="5" rx="3" ry="5.5"/><ellipse cx="12" cy="19" rx="3" ry="5.5"/><ellipse cx="5" cy="12" rx="5.5" ry="3"/><ellipse cx="19" cy="12" rx="5.5" ry="3"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
+        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal)"><ellipse cx="12" cy="4.8" rx="2.9" ry="5.2"/><ellipse cx="12" cy="19.2" rx="2.9" ry="5.2"/><ellipse cx="4.8" cy="12" rx="5.2" ry="2.9"/><ellipse cx="19.2" cy="12" rx="5.2" ry="2.9"/><ellipse cx="6.9" cy="6.9" rx="2.8" ry="5" transform="rotate(45 6.9 6.9)"/><ellipse cx="17.1" cy="17.1" rx="2.8" ry="5" transform="rotate(45 17.1 17.1)"/><ellipse cx="17.1" cy="6.9" rx="2.8" ry="5" transform="rotate(-45 17.1 6.9)"/><ellipse cx="6.9" cy="17.1" rx="2.8" ry="5" transform="rotate(-45 6.9 17.1)"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
         <h3>Admiración, en voz baja</h3>
         <p>Me parece valiente la manera en que sigues adelante incluso los días en que no te provoca. Eso casi nunca se aplaude y debería.</p>
       </article>
 
       <article class="note">
-        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal-2)"><ellipse cx="12" cy="5" rx="3" ry="5.5"/><ellipse cx="12" cy="19" rx="3" ry="5.5"/><ellipse cx="5" cy="12" rx="5.5" ry="3"/><ellipse cx="19" cy="12" rx="5.5" ry="3"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
+        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal-2)"><ellipse cx="12" cy="4.8" rx="2.9" ry="5.2"/><ellipse cx="12" cy="19.2" rx="2.9" ry="5.2"/><ellipse cx="4.8" cy="12" rx="5.2" ry="2.9"/><ellipse cx="19.2" cy="12" rx="5.2" ry="2.9"/><ellipse cx="6.9" cy="6.9" rx="2.8" ry="5" transform="rotate(45 6.9 6.9)"/><ellipse cx="17.1" cy="17.1" rx="2.8" ry="5" transform="rotate(45 17.1 17.1)"/><ellipse cx="17.1" cy="6.9" rx="2.8" ry="5" transform="rotate(-45 17.1 6.9)"/><ellipse cx="6.9" cy="17.1" rx="2.8" ry="5" transform="rotate(-45 6.9 17.1)"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
         <h3>Que te vaya bonito</h3>
         <p>Ojalá esta primavera te pasen cosas buenas de esas que no se planean: noticias que esperabas, días tranquilos, gente que te trate bien.</p>
       </article>
 
       <article class="note">
-        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal)"><ellipse cx="12" cy="5" rx="3" ry="5.5"/><ellipse cx="12" cy="19" rx="3" ry="5.5"/><ellipse cx="5" cy="12" rx="5.5" ry="3"/><ellipse cx="19" cy="12" rx="5.5" ry="3"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
+        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal)"><ellipse cx="12" cy="4.8" rx="2.9" ry="5.2"/><ellipse cx="12" cy="19.2" rx="2.9" ry="5.2"/><ellipse cx="4.8" cy="12" rx="5.2" ry="2.9"/><ellipse cx="19.2" cy="12" rx="5.2" ry="2.9"/><ellipse cx="6.9" cy="6.9" rx="2.8" ry="5" transform="rotate(45 6.9 6.9)"/><ellipse cx="17.1" cy="17.1" rx="2.8" ry="5" transform="rotate(45 17.1 17.1)"/><ellipse cx="17.1" cy="6.9" rx="2.8" ry="5" transform="rotate(-45 17.1 6.9)"/><ellipse cx="6.9" cy="17.1" rx="2.8" ry="5" transform="rotate(-45 6.9 17.1)"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
         <h3>Sin apuro</h3>
         <p>Esto no significa nada más que lo que parece: alguien pensó en ti hoy y quiso que lo supieras. Nada que responder, nada que resolver.</p>
       </article>
 
       <article class="note">
-        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal-2)"><ellipse cx="12" cy="5" rx="3" ry="5.5"/><ellipse cx="12" cy="19" rx="3" ry="5.5"/><ellipse cx="5" cy="12" rx="5.5" ry="3"/><ellipse cx="19" cy="12" rx="5.5" ry="3"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
+        <svg class="dot" viewBox="0 0 24 24" aria-hidden="true"><g fill="var(--petal-2)"><ellipse cx="12" cy="4.8" rx="2.9" ry="5.2"/><ellipse cx="12" cy="19.2" rx="2.9" ry="5.2"/><ellipse cx="4.8" cy="12" rx="5.2" ry="2.9"/><ellipse cx="19.2" cy="12" rx="5.2" ry="2.9"/><ellipse cx="6.9" cy="6.9" rx="2.8" ry="5" transform="rotate(45 6.9 6.9)"/><ellipse cx="17.1" cy="17.1" rx="2.8" ry="5" transform="rotate(45 17.1 17.1)"/><ellipse cx="17.1" cy="6.9" rx="2.8" ry="5" transform="rotate(-45 17.1 6.9)"/><ellipse cx="6.9" cy="17.1" rx="2.8" ry="5" transform="rotate(-45 6.9 17.1)"/></g><circle cx="12" cy="12" r="3.2" fill="#C98F00"/></svg>
         <h3>Guárdalo para un martes</h3>
         <p>Si algún día te toca uno de esos grises, vuelve a esta página. Las flores de aquí no se marchitan y el mensaje sigue siendo cierto.</p>
       </article>
