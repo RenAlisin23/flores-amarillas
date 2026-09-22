@@ -100,9 +100,13 @@ body{
   justify-self:center;align-self:start;
   width:100%;max-width:23ch;text-align:center;
 }
-#line{
+.linebox{
+  min-height:calc(3.8em * 1.26);
+  display:flex;align-items:center;justify-content:center;
   font-size:clamp(1.5rem,6.2vw,2.5rem);
-  line-height:1.26;min-height:3.8em;
+}
+#line{
+  font-size:1em;line-height:1.26;
   text-wrap:balance;
 }
 #line span{
@@ -155,18 +159,19 @@ body{
   }
   .sprig{justify-self:end;align-self:center;height:min(68svh,520px)}
   .words{justify-self:start;align-self:center;text-align:left;max-width:20ch}
+  .linebox{justify-content:flex-start}
   .foot{align-items:flex-start}
 }
 
 @media (max-height:560px){
   .sprig{height:clamp(130px,46svh,240px)}
-  #line{font-size:clamp(1.15rem,3.6vw,1.75rem);min-height:3.4em}
+  .linebox{font-size:clamp(1.15rem,3.6vw,1.75rem);min-height:calc(3.4em * 1.26)}
   .stage{gap:10px;padding-bottom:max(40px,calc(env(safe-area-inset-bottom) + 34px))}
   .foot{margin-top:12px;gap:11px}
 }
 @media (max-height:420px){
   .sprig{height:clamp(110px,44svh,190px)}
-  #line{font-size:clamp(1rem,3vw,1.45rem);min-height:3.2em}
+  .linebox{font-size:clamp(1rem,3vw,1.45rem);min-height:calc(3.2em * 1.26)}
   .date{font-size:.68rem}
 }
 
@@ -232,7 +237,7 @@ body{
   </svg>
 
   <div class="words">
-    <p id="line" aria-live="polite"></p>
+    <div class="linebox"><p id="line" aria-live="polite"></p></div>
     <div class="foot">
       <div class="nav">
         <button class="back" id="back" type="button" aria-label="Frase anterior">&#8592;</button>
