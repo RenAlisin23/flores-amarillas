@@ -36,6 +36,7 @@ body{
   -webkit-font-smoothing:antialiased;
   overflow:hidden;
   -webkit-tap-highlight-color:transparent;
+  -webkit-user-select:none;user-select:none;
 }
 
 .light{
@@ -116,6 +117,17 @@ body{
   margin-top:clamp(16px,3vh,30px);
   display:flex;flex-direction:column;align-items:center;gap:15px;
 }
+.nav{display:grid;grid-template-columns:auto auto auto;align-items:center;gap:14px}
+.back{
+  width:1.7em;height:1.7em;display:grid;place-items:center;
+  background:none;border:0;padding:0;color:var(--ink-faint);
+  font-family:inherit;font-size:1.05rem;line-height:1;cursor:pointer;
+  opacity:0;pointer-events:none;
+  transition:opacity .5s ease,color .3s ease;
+}
+.back.on{opacity:.65;pointer-events:auto}
+.back:hover,.back:focus-visible{color:var(--bloom);outline:none}
+.ghost{width:1.7em;height:1.7em}
 .marks{display:flex;gap:9px}
 .marks i{
   display:block;width:16px;height:1px;background:var(--ink-faint);
@@ -222,7 +234,11 @@ body{
   <div class="words">
     <p id="line" aria-live="polite"></p>
     <div class="foot">
-      <div class="marks" id="marks" aria-hidden="true"></div>
+      <div class="nav">
+        <button class="back" id="back" type="button" aria-label="Frase anterior">&#8592;</button>
+        <div class="marks" id="marks" aria-hidden="true"></div>
+        <span class="ghost" aria-hidden="true"></span>
+      </div>
       <p class="hint" id="hint">toca</p>
     </div>
   </div>
@@ -236,7 +252,9 @@ body{
   var lines = [
     'Hoy es el día de las flores amarillas.',
     'Así que <em>estas</em> son para ti.',
+    'Por ser especial sin proponértelo.',
     'Porque le subes la luz a todo lo que tienes cerca.',
+    'Incluso a <em>mí</em>.',
     'Que tengas más días amarillos que grises.'
   ];
 
@@ -244,6 +262,7 @@ body{
   var marks = document.getElementById('marks');
   var hint  = document.getElementById('hint');
   var date  = document.getElementById('date');
+  var back  = document.getElementById('back');
   var i = -1;
 
   lines.forEach(function(){ marks.appendChild(document.createElement('i')); });
@@ -261,27 +280,45 @@ body{
     });
   }
 
-  function next(){
-    if (i >= lines.length - 1) return;
-    i++;
+  function show(n){
+    i = n;
     render(lines[i]);
     for (var k = 0; k < bars.length; k++){ bars[k].classList.toggle('on', k <= i); }
-    if (i === 1) hint.classList.add('gone');
-    if (i === lines.length - 1) date.classList.add('on');
+    hint.classList.toggle('gone', i >= 1);
+    date.classList.toggle('on', i === lines.length - 1);
+    back.classList.toggle('on', i >= 1);
   }
 
-  setTimeout(next, 1700);
+  function next(){ if (i > -1 && i < lines.length - 1) show(i + 1); }
+  function prev(){ if (i > 0) show(i - 1); }
 
-  function advance(e){
-    if (i < 0) return;
-    if (e.type === 'keydown'){
-      if (e.key !== ' ' && e.key !== 'Enter' && e.key !== 'ArrowRight') return;
-      e.preventDefault();
+  setTimeout(function(){ show(0); }, 1700);
+
+  back.addEventListener('click', function(e){ e.stopPropagation(); prev(); });
+
+  var swiped = false;
+  document.addEventListener('click', function(){ if (!swiped) next(); });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft' || e.key === 'Backspace'){ e.preventDefault(); prev(); }
+    else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); next(); }
+  });
+
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function(e){
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    var dy = e.changedTouches[0].clientY - y0;
+    x0 = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)){
+      swiped = true;
+      if (dx < 0) next(); else prev();
+      setTimeout(function(){ swiped = false; }, 400);
     }
-    next();
-  }
-  document.addEventListener('click', advance);
-  document.addEventListener('keydown', advance);
+  }, {passive:true});
 })();
 </script>
 </body>
